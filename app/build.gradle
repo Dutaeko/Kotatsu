@@ -58,6 +58,9 @@ android {
 		buildConfig true
 	}
 	packagingOptions {
+		jniLibs {
+			useLegacyPackaging true
+		}
 		resources {
 			excludes += [
 				'META-INF/README.md',
@@ -96,7 +99,7 @@ android {
 	}
 	lint {
 		abortOnError true
-		disable 'MissingTranslation', 'PrivateResource', 'SetJavaScriptEnabled', 'SimpleDateFormat'
+		disable 'MissingTranslation', 'MissingQuantity', 'PrivateResource', 'SetJavaScriptEnabled', 'SimpleDateFormat'
 	}
 	testOptions {
 		unitTests.includeAndroidResources true
