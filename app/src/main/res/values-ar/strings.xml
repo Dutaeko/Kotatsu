@@ -303,7 +303,7 @@
     <string name="other_cache">بيانات تخزين مؤقت أخرى</string>
     <string name="storage_usage">استهلاك التخزين</string>
     <string name="available">متوفر</string>
-    <string name="memory_usage_pattern">%s - %s</string>
+    <string name="memory_usage_pattern">%1$s - %2$s</string>
     <string name="options">خيارات</string>
     <string name="incognito_mode">الوضع الخفي</string>
     <string name="automatic_scroll">تمرير تلقائي</string>
@@ -706,7 +706,7 @@
     <string name="content_type_game_cg">CG اللعبة</string>
     <string name="debug">تصحيح الأخطاء</string>
     <string name="source_code">التعليمات البرمجية المصدرية</string>
-    <string name="user_manual">دليل المستخدم</string>
+    <string name="user_manual">Developer</string>
     <string name="telegram_group">مجموعة Telegram</string>
     <string name="landscape">أفقي</string>
     <string name="portrait">معرض</string>

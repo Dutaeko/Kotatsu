@@ -13,12 +13,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import org.koitharu.kotatsu.R
 import org.koitharu.kotatsu.core.nav.AppRouter
 import org.koitharu.kotatsu.core.nav.router
 import org.koitharu.kotatsu.core.os.AppShortcutManager
+import org.koitharu.kotatsu.core.parser.ParserProvider
 import org.koitharu.kotatsu.core.prefs.AppSettings
 import org.koitharu.kotatsu.core.ui.BaseFragment
 import org.koitharu.kotatsu.core.ui.util.RecyclerViewOwner
@@ -141,6 +143,20 @@ class SourcesManageFragment :
 		viewModel.onTipClosed(tip)
 	}
 
+	private fun showParserListDialog() {
+		val providers = ParserProvider.entries
+		val labels = providers.map { provider ->
+			val title = getString(provider.titleResId)
+			if (provider.isActive) getString(R.string.parser_provider_active, title) else title
+		}.toTypedArray()
+		val activeIndex = providers.indexOfFirst { it.isActive }
+		MaterialAlertDialogBuilder(requireContext())
+			.setTitle(R.string.parser_list)
+			.setSingleChoiceItems(labels, activeIndex, null)
+			.setPositiveButton(android.R.string.ok, null)
+			.show()
+	}
+
 	private inner class SourcesMenuProvider :
 		MenuProvider,
 		MenuItem.OnActionExpandListener,
@@ -164,6 +180,11 @@ class SourcesManageFragment :
 
 			R.id.action_disable_all -> {
 				viewModel.disableAll()
+				true
+			}
+
+			R.id.action_parser_list -> {
+				showParserListDialog()
 				true
 			}
 

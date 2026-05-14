@@ -226,7 +226,7 @@
     <string name="other_cache">Cache lain-lain</string>
     <string name="storage_usage">Penggunaan storan</string>
     <string name="available">Tersedia</string>
-    <string name="memory_usage_pattern">%s - %s</string>
+    <string name="memory_usage_pattern">%1$s - %2$s</string>
     <string name="removed_from_favourites">Dibuang daripada kegemaran</string>
     <string name="options">Pilihan</string>
     <string name="local_storage">Storan tempatan</string>
@@ -726,7 +726,7 @@
     <string name="content_type_game_cg">Permainan CG</string>
     <string name="debug">Awakutu</string>
     <string name="source_code">Kod sumber</string>
-    <string name="user_manual">Manual Pengguna</string>
+    <string name="user_manual">Developer</string>
     <string name="telegram_group">Kumpulan Telegram</string>
     <string name="error_image_format">Format imej yang tidak disokong: %s</string>
     <string name="error_not_image">Format tidak sah: Imej yang diharapkan tetapi mendapat %s</string>

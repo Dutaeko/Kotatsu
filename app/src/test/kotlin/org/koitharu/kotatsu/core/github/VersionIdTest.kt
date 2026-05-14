@@ -45,8 +45,13 @@ class VersionIdTest {
 
 	@Test
 	fun testCurrentVersion() {
-		val version1 = VersionId("2.4.6")
-		val version2 = VersionId(BuildConfig.VERSION_NAME)
+		val currentVersionName = BuildConfig.VERSION_NAME
+		val version1 = if (currentVersionName.startsWith('N', ignoreCase = true)) {
+			VersionId("N000000")
+		} else {
+			VersionId("2.4.6")
+		}
+		val version2 = VersionId(currentVersionName)
 		assertTrue(version1 < version2)
 	}
 }

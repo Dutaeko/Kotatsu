@@ -316,7 +316,7 @@
     <string name="server_error">Kesalahan di sisi server (%1$d). Silakan coba lagi nanti</string>
     <string name="compact">Padat</string>
     <string name="prefetch_content">Pramuat konten</string>
-    <string name="memory_usage_pattern">%s - %s</string>
+    <string name="memory_usage_pattern">%1$s - %2$s</string>
     <string name="nothing_here">Tidak ada apapun di sini</string>
     <string name="reader_control_ltr_summary">Jangan ubah arah pergantian halaman ke mode pembaca, misalnya, menekan tombol kanan selalu beralih ke halaman berikutnya. Opsi ini hanya berlaku untuk perangkat masukan hardware</string>
     <string name="source_disabled">Sumber dinonaktifkan</string>
@@ -730,7 +730,9 @@
     <string name="demographic_shoujo">Shoujo</string>
     <string name="manga_replaced">Manga \"%1$s\" (%2$s) diganti dengan \"%3$s\" (%4$s)</string>
     <string name="content_type_manhua">Komik Mandarin (manhua)</string>
-    <string name="user_manual">Manual pengguna</string>
+    <string name="user_manual">Developer</string>
+    <string name="parser_list">Daftar Parser</string>
+    <string name="parser_provider_active">%1$s (aktif)</string>
     <string name="destination_directory">Direktori tujuan</string>
     <string name="demographic_josei">Josei</string>
     <string name="download_new_chapters">Unduh bab baru</string>

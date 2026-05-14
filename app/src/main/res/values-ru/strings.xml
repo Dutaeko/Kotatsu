@@ -300,7 +300,7 @@
     <string name="last_2_hours">Последние 2 часа</string>
     <string name="categories_delete_confirm">Вы уверены, что хотите удалить выбранные категории избранного? \nВся манга в них будет потеряна и это не может быть отменено.</string>
     <string name="pages_cache">Кэш страниц</string>
-    <string name="memory_usage_pattern">%s - %s</string>
+    <string name="memory_usage_pattern">%1$s - %2$s</string>
     <string name="storage_usage">Использование хранилища</string>
     <string name="available">Доступно</string>
     <string name="saved_manga">Сохранённая манга</string>
@@ -720,7 +720,7 @@
     <string name="content_type_game_cg">Игровая CG</string>
     <string name="debug">Отладка</string>
     <string name="source_code">Исходный код</string>
-    <string name="user_manual">Руководство пользователя</string>
+    <string name="user_manual">Developer</string>
     <string name="telegram_group">Группа в Telegram</string>
     <string name="error_image_format">Неподдерживаемый формат изображения: %s</string>
     <string name="genre">Жанр</string>

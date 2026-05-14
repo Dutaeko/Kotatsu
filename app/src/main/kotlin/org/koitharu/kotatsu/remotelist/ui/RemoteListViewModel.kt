@@ -45,7 +45,6 @@ import org.koitharu.kotatsu.local.data.LocalStorageChanges
 import org.koitharu.kotatsu.local.domain.model.LocalManga
 import org.koitharu.kotatsu.parsers.model.Manga
 import org.koitharu.kotatsu.parsers.model.MangaParserSource
-import org.koitharu.kotatsu.parsers.util.sizeOrZero
 import javax.inject.Inject
 
 private const val FILTER_MIN_INTERVAL = 250L
@@ -72,6 +71,7 @@ open class RemoteListViewModel @Inject constructor(
 	private val mangaList = MutableStateFlow<List<Manga>?>(null)
 	private val hasNextPage = MutableStateFlow(false)
 	private val listError = MutableStateFlow<Throwable?>(null)
+	private val paginationState = RemoteListPaginationState()
 	private var loadingJob: Job? = null
 	private var randomJob: Job? = null
 
@@ -121,7 +121,6 @@ open class RemoteListViewModel @Inject constructor(
 		}
 
         if (source is MangaParserSource && source.isBroken) {
-            // Just notify one. Will show reason in future
             onSourceBroken.call(Unit)
         }
 	}
@@ -147,22 +146,20 @@ open class RemoteListViewModel @Inject constructor(
 		return launchLoadingJob(Dispatchers.Default) {
 			try {
 				listError.value = null
+				val offset = paginationState.getOffset(append)
 				val list = repository.getList(
-					offset = if (append) mangaList.value.sizeOrZero() else 0,
+					offset = offset,
 					order = filterState.sortOrder,
 					filter = filterState.listFilter,
 				)
+				paginationState.onPageLoaded(offset, list.size)
 				val prevList = mangaList.value.orEmpty()
-				if (!append) {
-					mangaList.value = list.distinctById()
-				} else if (list.isNotEmpty()) {
-					mangaList.value = (prevList + list).distinctById()
-				}
-				hasNextPage.value = if (append) {
-					prevList != mangaList.value
+				mangaList.value = if (append) {
+					(prevList + list).distinctById()
 				} else {
-					list.size > prevList.size || hasNextPage.value
+					list.distinctById()
 				}
+				hasNextPage.value = paginationState.hasNextPage
 			} catch (e: CancellationException) {
 				throw e
 			} catch (e: Throwable) {

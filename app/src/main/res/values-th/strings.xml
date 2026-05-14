@@ -326,7 +326,7 @@
     <string name="text_unsaved_changes_prompt">บันทึกหรือละทิ้งการเปลี่ยนแปลงที่ยังไม่ได้บันทึก\?</string>
     <string name="color_theme">โทนสี</string>
     <string name="brightness">ความสว่าง</string>
-    <string name="memory_usage_pattern">%s - %s</string>
+    <string name="memory_usage_pattern">%1$s - %2$s</string>
     <string name="exit_confirmation_summary">กดย้อนกลับสองครั้งเพื่อออกจากแอป</string>
     <string name="bookmarks_removed">ลบบุ๊คมาร์กแล้ว</string>
     <string name="error_no_space_left">ไม่มีพื้นที่เหลือบนอุปกรณ์แล้ว</string>
@@ -414,7 +414,7 @@
     <string name="added_long_ago">เพิ่มมานานแล้ว</string>
     <string name="recently_added">เพิ่มล่าสุด</string>
     <string name="telegram_group">กลุ่ม Telegram</string>
-    <string name="user_manual">คู่มือการใช้งาน</string>
+    <string name="user_manual">Developer</string>
     <string name="source_code">ซอร์สโค้ด</string>
     <string name="theme_name_dynamic">ไดนามิกส์</string>
     <string name="show_suspicious_content">แสดงเนื้อหาที่น่าสงสัย</string>
