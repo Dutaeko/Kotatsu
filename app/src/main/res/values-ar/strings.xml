@@ -706,7 +706,7 @@
     <string name="content_type_game_cg">CG اللعبة</string>
     <string name="debug">تصحيح الأخطاء</string>
     <string name="source_code">التعليمات البرمجية المصدرية</string>
-    <string name="user_manual">دليل المستخدم</string>
+    <string name="user_manual">Developer</string>
     <string name="telegram_group">مجموعة Telegram</string>
     <string name="landscape">أفقي</string>
     <string name="portrait">معرض</string>

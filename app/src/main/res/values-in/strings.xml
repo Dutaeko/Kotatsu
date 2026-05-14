@@ -730,7 +730,9 @@
     <string name="demographic_shoujo">Shoujo</string>
     <string name="manga_replaced">Manga \"%1$s\" (%2$s) diganti dengan \"%3$s\" (%4$s)</string>
     <string name="content_type_manhua">Komik Mandarin (manhua)</string>
-    <string name="user_manual">Manual pengguna</string>
+    <string name="user_manual">Developer</string>
+    <string name="parser_list">Daftar Parser</string>
+    <string name="parser_provider_active">%1$s (aktif)</string>
     <string name="destination_directory">Direktori tujuan</string>
     <string name="demographic_josei">Josei</string>
     <string name="download_new_chapters">Unduh bab baru</string>

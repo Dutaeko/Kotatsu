@@ -23,6 +23,11 @@
 		app:showAsAction="never" />
 
 	<item
+		android:id="@+id/action_parser_list"
+		android:title="@string/parser_list"
+		app:showAsAction="never" />
+
+	<item
 		android:id="@+id/action_disable_all"
 		android:title="@string/disable_all"
 		app:showAsAction="never" />

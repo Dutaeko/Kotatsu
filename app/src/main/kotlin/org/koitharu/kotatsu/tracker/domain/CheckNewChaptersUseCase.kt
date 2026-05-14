@@ -1,8 +1,6 @@
 package org.koitharu.kotatsu.tracker.domain
 
-import android.util.Log
 import coil3.request.CachePolicy
-import org.koitharu.kotatsu.BuildConfig
 import org.koitharu.kotatsu.core.model.getPreferredBranch
 import org.koitharu.kotatsu.core.model.isLocal
 import org.koitharu.kotatsu.core.parser.CachingMangaRepository
@@ -13,6 +11,7 @@ import org.koitharu.kotatsu.core.util.ext.toInstantOrNull
 import org.koitharu.kotatsu.history.data.HistoryRepository
 import org.koitharu.kotatsu.local.data.LocalMangaRepository
 import org.koitharu.kotatsu.parsers.model.Manga
+import org.koitharu.kotatsu.parsers.model.MangaChapter
 import org.koitharu.kotatsu.parsers.util.findById
 import org.koitharu.kotatsu.parsers.util.runCatchingCancellable
 import org.koitharu.kotatsu.tracker.domain.model.MangaTracking
@@ -93,19 +92,17 @@ class CheckNewChaptersUseCase @Inject constructor(
 		manga.chapters?.findById(trackChapterId)?.let {
 			return it.branch
 		}
-		// fallback
 		return manga.getPreferredBranch(null)
 	}
 
-	private suspend fun getFullManga(manga: Manga): Manga = when {
-		manga.isLocal -> fetchDetails(
+	private suspend fun getFullManga(manga: Manga): Manga = if (manga.isLocal) {
+		fetchDetails(
 			requireNotNull(localMangaRepository.getRemoteManga(manga)) {
 				"Local manga is not supported"
 			},
 		)
-
-		manga.chapters.isNullOrEmpty() -> fetchDetails(manga)
-		else -> manga
+	} else {
+		fetchDetails(manga)
 	}
 
 	private suspend fun fetchDetails(manga: Manga): Manga {
@@ -117,17 +114,10 @@ class CheckNewChaptersUseCase @Inject constructor(
 		}
 	}
 
-	/**
-	 * The main functionality of tracker: check new chapters in [manga] comparing to the [track]
-	 */
 	private fun compare(track: MangaTracking, manga: Manga, branch: String?): MangaUpdates.Success {
-		if (track.isEmpty()) {
-			// first check or manga was empty on last check
-			return MangaUpdates.Success(manga, branch, emptyList(), isValid = false)
-		}
 		val chapters = requireNotNull(manga.getChapters(branch))
-		if (BuildConfig.DEBUG && chapters.findById(track.lastChapterId) == null) {
-			Log.e("Tracker", "Chapter ${track.lastChapterId} not found")
+		if (track.isEmpty()) {
+			return MangaUpdates.Success(manga, branch, emptyList(), isValid = false)
 		}
 		val newChapters = chapters.takeLastWhile { x -> x.id != track.lastChapterId }
 		return when {
@@ -140,13 +130,27 @@ class CheckNewChaptersUseCase @Inject constructor(
 				)
 			}
 
-			newChapters.size == chapters.size -> {
-				MangaUpdates.Success(manga, branch, emptyList(), isValid = false)
-			}
+			newChapters.size == chapters.size -> compareByChapterDate(track, manga, branch, chapters)
 
-			else -> {
-				MangaUpdates.Success(manga, branch, newChapters, isValid = true)
-			}
+			else -> MangaUpdates.Success(manga, branch, newChapters, isValid = true)
+		}
+	}
+
+	private fun compareByChapterDate(
+		track: MangaTracking,
+		manga: Manga,
+		branch: String?,
+		chapters: List<MangaChapter>,
+	): MangaUpdates.Success {
+		val lastChapterDate = track.lastChapterDate?.toEpochMilli() ?: 0L
+		if (lastChapterDate <= 0L) {
+			return MangaUpdates.Success(manga, branch, emptyList(), isValid = false)
+		}
+		val newChapters = chapters.takeLastWhile { x -> x.uploadDate > lastChapterDate }
+		return if (newChapters.isEmpty()) {
+			MangaUpdates.Success(manga, branch, emptyList(), isValid = true)
+		} else {
+			MangaUpdates.Success(manga, branch, newChapters, isValid = true)
 		}
 	}
 }

@@ -106,7 +106,7 @@ class TrackWorker @AssistedInject constructor(
 	}
 
 	private suspend fun doWorkImpl(isFullRun: Boolean): Result {
-		if (!settings.isTrackerEnabled) {
+		if (!settings.isTrackerEnabled && !isFullRun) {
 			return Result.success()
 		}
 		val tracks = getTracksUseCase(if (isFullRun) Int.MAX_VALUE else BATCH_SIZE)

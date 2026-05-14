@@ -749,7 +749,7 @@
     <string name="content_type_image_set">Sada obrázků</string>
     <string name="content_type_game_cg">Hra CG</string>
     <string name="source_code">Zdrojový kód</string>
-    <string name="user_manual">Uživatelský manuál</string>
+    <string name="user_manual">Developer</string>
     <string name="chapter_selection_hint">Můžete vybrat kapitoly ke stažení dlouhým stisknutím na ně v listu kapitol.</string>
     <string name="screen_orientation">Otočení obrazovky</string>
     <string name="portrait">Na výšku</string>

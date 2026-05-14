@@ -728,7 +728,7 @@
     <string name="delete_old_backups_summary">Automatski izbriši stare sigurnosne kopije datoteka radi uštede memorije</string>
     <string name="error_image_format">Nepodržani format slika: %s</string>
     <string name="content_type_game_cg">Igra (generirano od računala)</string>
-    <string name="user_manual">Upute</string>
+    <string name="user_manual">Developer</string>
     <string name="debug">Otklanjanje grešaka</string>
     <string name="plugin_incompatible_with_cause">Greška dodatka: %s\nProvjerite koristite li najnoviju verziju dodatka i aplikacije Kotatsu</string>
     <string name="unstable_feature_summary">Ova je funkcija eksperimentalna. Provjerite imate li sigurnosnu kopiju kako biste izbjegli gubljenje podataka</string>

@@ -754,7 +754,12 @@
     <string name="content_type_game_cg">Game CG</string>
     <string name="debug">Debug</string>
     <string name="source_code">Source code</string>
-    <string name="user_manual">User manual</string>
+    <string name="user_manual">Developer</string>
+    <string name="parser_list">Parser list</string>
+    <string name="parser_provider_kotatsu_redo">Kotatsu Redo Parser</string>
+    <string name="parser_provider_kototoro">Kototoro Parser</string>
+    <string name="parser_provider_yakateam">Yakateam Parser</string>
+    <string name="parser_provider_active">%1$s (active)</string>
     <string name="telegram_group">Telegram group</string>
     <string name="error_image_format">Unsupported image format: %s</string>
     <string name="error_not_image">Invalid format: expected image but got %s</string>

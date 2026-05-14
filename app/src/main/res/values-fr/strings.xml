@@ -680,7 +680,7 @@
     <string name="scrobbler_auth_intro">Connectez-vous pour configurer l\'intégration avec %s. Ceci vous permettra de suivre vos progrès de lecture de manga et l\'état</string>
     <string name="unstable_feature_summary">Cette fonction est expérimentale. Assurez-vous d\'avoir une sauvegarde pour éviter la perte de données</string>
     <string name="source_code">Code source</string>
-    <string name="user_manual">Manuel d\'utilisation</string>
+    <string name="user_manual">Developer</string>
     <string name="telegram_group">Groupe Telegram</string>
     <string name="portrait">Portrait</string>
     <string name="landscape">Paysage</string>

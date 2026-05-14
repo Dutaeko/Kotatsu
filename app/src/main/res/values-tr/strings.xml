@@ -719,7 +719,7 @@
     <string name="content_type_artist_cg">Sanatçı CG</string>
     <string name="content_type_game_cg">Oyun CG</string>
     <string name="debug">Hata ayıkla</string>
-    <string name="user_manual">Kullanıcı kılavuzu</string>
+    <string name="user_manual">Developer</string>
     <string name="source_code">Kaynak kodu</string>
     <string name="telegram_group">Telegram grubu</string>
     <string name="error_image_format">Desteklenmeyen resim biçimi: %s</string>

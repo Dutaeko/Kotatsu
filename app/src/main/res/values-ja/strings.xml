@@ -662,7 +662,7 @@
     <string name="content_type_doujinshi">同人誌</string>
     <string name="debug">デバッグ</string>
     <string name="source_code">ソースコード</string>
-    <string name="user_manual">ユーザーマニュアル</string>
+    <string name="user_manual">Developer</string>
     <string name="error_image_format">サポートされていない画像形式: %s</string>
     <string name="error_not_image">無効な形式です: 画像が期待されましたが %s が入力されました</string>
     <string name="start_download">ダウンロード開始</string>
